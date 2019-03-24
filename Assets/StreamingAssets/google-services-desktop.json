@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "210167944327",
+    "firebase_url": "https://morally-high-1482f.firebaseio.com",
+    "project_id": "morally-high-1482f",
+    "storage_bucket": "morally-high-1482f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210167944327:android:2998bf1713ff7e52",
+        "android_client_info": {
+          "package_name": "com.debug.morallyhigh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "210167944327-j4mc57de4ft49491vgpmgvje25qh2qk8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfjhHjDYT8YZqZ3R4tzbnVlctS33j5LmI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
