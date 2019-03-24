@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 using BayatGames.SaveGameFree;
 public class FirebaseScript : MonoBehaviour
 {
+	public string[] tu, tp;
+	int i = 0;
 	public InputField email, password, confirmpassword;
 	public InputField name, age;
     public void loginbutton()
@@ -18,10 +20,20 @@ public class FirebaseScript : MonoBehaviour
 
 	public void signup_button()
 	{
-		SaveGame.Save<int>("age", int.Parse(age.text.ToString()));
-		SaveGame.Save<string>("name", name.ToString());
 		if (password.text == confirmpassword.text)
 		{
+			if(SaveGame.Load<string[]>("usernames").Length != 0)
+			{
+				i = SaveGame.Load<string[]>("usernames").Length;
+			}
+			tu = SaveGame.Load<string[]>("usernames");
+			Debug.Log(tu.Length);
+			tu[i] = name.text.ToString();
+
+			SaveGame.Save<string[]>("usernames", tu);
+			tp = SaveGame.Load<string[]>("passwords");
+			tp[i++] = password.text.ToString();
+
 			FirebaseAuth.DefaultInstance.CreateUserWithEmailAndPasswordAsync(email.text, password.text).ContinueWith((obj) =>
 			{
 				SceneManager.LoadSceneAsync(3);

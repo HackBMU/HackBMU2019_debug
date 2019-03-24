@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/admin login.unity
     guid: 401673fd8a3e0ff448a516d42ecad28c
+  - enabled: 1
+    path: Assets/Scenes/messaging.unity
+    guid: cb8613f73362a824fb261ea5920bb9cf
+  - enabled: 1
+    path: Assets/Scenes/NOTIFICATIONS.unity
+    guid: 58016c24a83757742b71efe96a739111
   m_configObjects: {}

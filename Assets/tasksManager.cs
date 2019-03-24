@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using BayatGames.SaveGameFree;
 public class tasksManager : MonoBehaviour
 {
+	public Text t, t1, t2, t3;
 	public Text task, points, showdate, waittill;
 	public string date = "MM-dd";
 	public string timelimit = "In Minutes";
@@ -27,6 +28,8 @@ public class tasksManager : MonoBehaviour
 			showdate.text = day.Substring(3, 2) + " / " + day.Substring(0, 2);
 			date_s.text = showdate.text;
 			task_s.text = task_description;
+			SaveGame.Save<int>("c", SaveGame.Load<int>("c",0) + 1);
+			taskvalues();
 		}
 	}
 
@@ -37,13 +40,15 @@ public class tasksManager : MonoBehaviour
 		endtime = time.Substring(0,2)+":"+(int.Parse(time.Substring(3, 2))+int.Parse(timelimit)).ToString("#00");
 		Debug.Log("endtime" + endtime + " currenttime" + System.DateTime.Now.ToString("HH:mm"));
 		waittill.text = endtime;
+		SaveGame.Save<int>("c1", SaveGame.Load<int>("c1", 0) + 1);
+		taskvalues();
 	}
 
 	private void Update()
 	{
-		if(accepted == true)
+		if (accepted == true)
 		{
-			if(System.DateTime.Now.ToString("HH:mm").ToString() == endtime)
+			if (System.DateTime.Now.ToString("HH:mm").ToString() == endtime)
 			{
 				Debug.Log("did you complete the task?");
 				taskcompletedshow.SetActive(true);
@@ -52,4 +57,13 @@ public class tasksManager : MonoBehaviour
 			}
 		}
 	}
+
+	public void taskvalues()
+	{
+		t.text = SaveGame.Load<int>("c", 0).ToString();
+		t1.text = SaveGame.Load<int>("c1", 0).ToString();
+		t3.text = SaveGame.Load<int>("c3", 0).ToString();
+		t2.text = ((float)SaveGame.Load<int>("c3", 0) / SaveGame.Load<int>("c", 0) *100).ToString("f2") + "%";
+	}
+
 }
